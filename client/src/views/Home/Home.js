@@ -8,7 +8,7 @@ function Home() {
     const [films,setFilms] =useState([])
     const loadFilms=async ()=>{
         try{
-    const response =await axios.get(`http://localhost:5000/films`)
+    const response =await axios.get(`${ProcessingInstruction.env.REACT_APP_API_URL}/films`)
     setFilms(response.data.data);
     toast.success("Films loaded successfully")
         }catch(error){
