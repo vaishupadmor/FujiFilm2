@@ -9,7 +9,7 @@ dotenv.config();
 
 //custom imports
 import {getHome ,getHealth,getNotFound} from "./controllers/other.js"
-import { getFilm, postFilm ,getFilmById,deleteFilmById,updateFilmById} from './controllers/film.js';
+import { getFilm, postFilm ,getFilmById,deleteFilmById,updateFilmById,updateFilmRatingById} from './controllers/film.js';
 import Film from './models/Film.js';
 
 
@@ -37,7 +37,8 @@ app.post("/films",postFilm);
 app.get("/films",getFilm);
 app.get("/films/:id",getFilmById);
 app.delete("/films/:id",deleteFilmById);
-app.put("/films/:id",updateFilmById)
+app.put("/films/:id",updateFilmById);
+app.patch("/films/rating/:id",updateFilmRatingById);
 app.get("*",getNotFound);
 
 

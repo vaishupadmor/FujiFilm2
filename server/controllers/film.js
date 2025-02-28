@@ -122,7 +122,7 @@ const updateFilmById=async(req,res)=>{
     }=req.body;
     
     try{
-   const updatedFilm =new Film.updateOne({_id: id},{
+   const updatedFilm =await Film.updateOne({_id: id},{
     title:title,
     shortDescription:shortDescription,
     director:director,
@@ -148,6 +148,28 @@ const updateFilmById=async(req,res)=>{
     }
 }
 
-        export {postFilm,getFilm,getFilmById,deleteFilmById,updateFilmById};
+const updateFilmRatingById=async(req,res)=>{
+    const {id} =req.params;
+    const {rating}=req.body;  
+    
+    try{   
+          const updatedFilm=await Film.updateOne({_id:id},{rating:rating});
+          return res.status(200).json({
+            success:true,
+            message:"Film rating updated",
+            data:updatedFilm,
+          })
+    }
+    catch(e)
+    {
+        return res.status(400).json({
+            success:false,
+            message:e.message,
+            data:null,
+        })
+    }
+}
+
+        export {postFilm,getFilm,getFilmById,deleteFilmById,updateFilmById,updateFilmRatingById};
     
    
