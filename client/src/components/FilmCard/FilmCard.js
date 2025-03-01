@@ -8,6 +8,7 @@ import ImgCategory from "./../../assets/category.png"
 import Button from '../Button/Button';
 import axios from 'axios';
 import toast,{Toaster} from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function FilmCard({
     category,
@@ -20,6 +21,8 @@ function FilmCard({
     shortDescription,
     _id,
 }) {
+  const navigate=useNavigate();
+  
 
   const deleteFilm=async ()=>{
     const response=await axios.delete(`${process.env.REACT_APP_API_URL}/films/${_id}`);
@@ -61,7 +64,7 @@ function FilmCard({
         <div className='film-card-delete'>
         <Button 
         title={"Edit"}
-        onClick={()=>{deleteFilm()}}/>
+        onClick={()=>{navigate(`/film/edit/${_id}`)}}/>
         <Button 
         title={"Delete"}
         onClick={()=>{deleteFilm()}}/>
