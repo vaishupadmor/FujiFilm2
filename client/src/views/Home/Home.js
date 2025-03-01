@@ -3,12 +3,14 @@ import './Home.css'
 import axios from 'axios'
 import toast,{Toaster} from "react-hot-toast"
 import FilmCard from '../../components/FilmCard/FilmCard'
+import addImageFilm from "./../../assets/addImageFilm.png"
+import {Link} from "react-router-dom"
 
 function Home() {
     const [films,setFilms] =useState([])
     const loadFilms=async ()=>{
         try{
-    const response =await axios.get(`${ProcessingInstruction.env.REACT_APP_API_URL}/films`)
+    const response =await axios.get(`${process.env.REACT_APP_API_URL}/films`)
     setFilms(response.data.data);
     toast.success("Films loaded successfully")
         }catch(error){
@@ -47,6 +49,9 @@ function Home() {
              />
         })}
         <Toaster/>
+        <Link to="/add-film">
+        <img src={addImageFilm} className='img-add-film' alt='Responsive image' />
+        </Link>
     </div>
   )
 }
