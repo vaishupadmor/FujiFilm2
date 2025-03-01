@@ -5,6 +5,7 @@ import axios from 'axios';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import toast,{Toaster} from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 function EditFilm() {
     const [film,setFilm] =useState({
                     title:"",
@@ -47,6 +48,10 @@ toast.success(response.data.message);
         }
   return (
     <div>
+       <Link to='/'><Button 
+       title="Back" 
+       variant="primary"
+       /></Link>
         <h1 className='Edit-page-heading'>EditFilm</h1>
         
         <div   className='add-film-form'>

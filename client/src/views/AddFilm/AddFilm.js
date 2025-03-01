@@ -57,7 +57,7 @@ console.error("Axios Error:",error)
 <Link to='/'><Button 
        title="Back" 
        variant="primary"
-       className="back-btn"/></Link>
+      /></Link>
     <h1 className='addFilm-heading'> AddFilm</h1>
     <div   className='add-film-form'>
        <Input
