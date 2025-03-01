@@ -9,3 +9,12 @@
     border-radius: 10px;
     
 }
+.addFilm-heading{
+    text-align: center;
+}
+.add-btn{
+    display:flex;
+   justify-content: center;
+   align-items: center;
+    
+}

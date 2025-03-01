@@ -4,6 +4,7 @@ import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import {Link} from 'react-router-dom'
 
 function AddFilm() {
     const [film,setFilm] =useState({
@@ -53,7 +54,11 @@ console.error("Axios Error:",error)
 
   return (
 <div>
-    <h1> AddFilm</h1>
+<Link to='/'><Button 
+       title="Back" 
+       variant="primary"
+       className="back-btn"/></Link>
+    <h1 className='addFilm-heading'> AddFilm</h1>
     <div   className='add-film-form'>
        <Input
        label="Title"
@@ -121,10 +126,15 @@ console.error("Axios Error:",error)
        />
 
        
+       <div  className='add-btn'>
        <Button 
        title="Add Film" 
        onClick={()=>{addFilm()}}
-       variant="primary"/>
+       variant="primary"
+      />
+
+       </div>
+      
 
 
     </div>
