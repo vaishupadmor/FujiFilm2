@@ -1,0 +1,22 @@
+.film-card{
+    border:1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.film-card-poster{
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 200p;
+    object-fit: cover;
+
+}
+.film-card-info{
+margin-left: 20px;
+}
+.director{
+    margin-right: 40px;
+}

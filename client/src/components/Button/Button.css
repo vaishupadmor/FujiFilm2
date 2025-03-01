@@ -1,0 +1,17 @@
+.btn{
+    background-color: blue;
+    padding: 10px 30px ;
+    border-radius: 30px;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    margin: 10px 20px;
+    font-size: 22px;
+}
+
+.primary{
+    background-color: blueviolet;
+}
+.secondary{
+    background-color: tomato;
+}

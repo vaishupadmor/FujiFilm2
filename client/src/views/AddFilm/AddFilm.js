@@ -1,9 +1,12 @@
 import React,{useState} from 'react'
-import  "./AddFilm.css"
+import "./AddFilm.css";
 import Input from '../../components/Input/Input'
+import Button from '../../components/Button/Button'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 function AddFilm() {
-    const [films,setFilms] =useState({
+    const [film,setFilm] =useState({
                 title:"",
                 shortDescription:"",
                 director:"",
@@ -12,63 +15,98 @@ function AddFilm() {
                 category:"",
                 language:"",
                 rating:"",
-    })
+    });
+
+    const addFilm = async()=>{
+       try{
+              console.log("sending request to:,${process.env.REACT_APP_API_URL}/films")
+       
+        const response= await axios.post(`${process.env.REACT_APP_API_URL}/films`,{
+
+            title:film.title,
+            shortDescription:film.shortDescription,
+            director:film.director,
+            poster:film.poster,
+            releaseYear:film.releaseYear,
+            category:film.category,
+            language:film.language,
+            rating:film.rating,
+        });
+        toast.success(response.data.message);
+
+        setFilm({
+                title:"",
+                shortDescription:"",
+                director:"",
+                poster:"",
+                releaseYear:"",
+                category:"",
+                language:"",
+                rating:"",
+        })
+       }
+       catch(error)
+       {
+console.error("Axios Error:",error)
+       }
+     }
+
   return (
 <div>
     <h1> AddFilm</h1>
     <div   className='add-film-form'>
        <Input
        label="Title"
-       value={films.title}
-       onChange={(val)=>{setFilms({ ...films,title: val})}}
+       value={film.title}
+       setValue={(val)=>{setFilm({ ...film,title: val})}}
        placeholder={"Enter Title"}
       
        />
        <Input
        label="Short Description"
-       value={films.shortDescription}
-       onChange={(val)=>{setFilms({ ...films,shortDescription: val})}}
+       value={film.shortDescription}
+       setValue={(val)=>{setFilm({ ...film,shortDescription: val})}}
        placeholder={"Enter Short Description"}
       
        />
 
 <Input
        label="Director"
-       value={films.director}
-       onChange={(val)=>{setFilms({ ...films,director: val})}}
+       value={film.director}
+       setValue={(val)=>{setFilm({ ...film,director: val})}}
        placeholder={"Enter Director"}
       
        />
 
 <Input
-       label=" poster"
-       value={films. poster}
-       onChange={(val)=>{setFilms({ ...films, poster: val})}}
+       label="poster"
+       value={film.poster}
+       setValue={(val)=>{setFilm({ ...film,poster: val})}}
        placeholder={"Enter  poster"}
       
        />
 
 <Input
        label="releaseYear"
-       value={films.releaseYear}
-       onChange={(val)=>{setFilms({ ...films,releaseYear: val})}}
+       value={film.releaseYear}
+       setValue={(val)=>{setFilm({ ...film,releaseYear: val})}}
        placeholder={"Enter releaseYear"}
       
        />
 
 <Input
        label="category"
-       value={films.category}
-       onChange={(val)=>{setFilms({ ...films,category: val})}}
+       value={film.category}
+       setValue={(val)=>{setFilm({ ...film,category: val})}}
        placeholder={"Enter category"}
       
        />
 
 
 <Input
-       label=" language"
-       value={films. language}
-       onChange={(val)=>{setFilms({ ...films, language: val})}}
+       label="language"
+       value={film.language}
+       setValue={(val)=>{setFilm({ ...film,language: val})}}
        placeholder={"Enter  language"}
       
        />
@@ -76,14 +114,19 @@ function AddFilm() {
 
 <Input
        label="rating"
-       value={films.rating}
-       onChange={(val)=>{setFilms({ ...films,rating: val})}}
+       value={film.rating}
+       setValue={(val)=>{setFilm({ ...film,rating: val})}}
        placeholder={"Enter rating"}
       
        />
 
        
-       
+       <Button 
+       title="Add Film" 
+       onClick={()=>{addFilm()}}
+       variant="primary"/>
+
+
     </div>
 
 </div>

@@ -1,17 +1,11 @@
-.input-container{
-padding: 5px;
-margin-top: 20px;
-}
-.input-label{
-display: block;
-margin-left: 20px;
-font-size: 24px;
-}
-.input-element{
-width: 90%;
-padding: 10px 20px;
-border:1px solid #ccc;
-border-radius: 30px;
-font-size: 20px;
-
+.add-film-form{
+    background-color: #ffddcc;
+    width: 700px;
+    display: block;
+   
+    margin: 0 auto;
+    border: 2px solid #ff5500;
+    padding: 20px;
+    border-radius: 10px;
+    
 }
