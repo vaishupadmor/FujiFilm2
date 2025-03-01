@@ -32,6 +32,56 @@ function AddFilm() {
       
        />
 
+<Input
+       label="Director"
+       value={films.director}
+       onChange={(val)=>{setFilms({ ...films,director: val})}}
+       placeholder={"Enter Director"}
+      
+       />
+
+<Input
+       label=" poster"
+       value={films. poster}
+       onChange={(val)=>{setFilms({ ...films, poster: val})}}
+       placeholder={"Enter  poster"}
+      
+       />
+
+<Input
+       label="releaseYear"
+       value={films.releaseYear}
+       onChange={(val)=>{setFilms({ ...films,releaseYear: val})}}
+       placeholder={"Enter releaseYear"}
+      
+       />
+
+<Input
+       label="category"
+       value={films.category}
+       onChange={(val)=>{setFilms({ ...films,category: val})}}
+       placeholder={"Enter category"}
+      
+       />
+
+
+<Input
+       label=" language"
+       value={films. language}
+       onChange={(val)=>{setFilms({ ...films, language: val})}}
+       placeholder={"Enter  language"}
+      
+       />
+
+
+<Input
+       label="rating"
+       value={films.rating}
+       onChange={(val)=>{setFilms({ ...films,rating: val})}}
+       placeholder={"Enter rating"}
+      
+       />
+
        
        
     </div>
