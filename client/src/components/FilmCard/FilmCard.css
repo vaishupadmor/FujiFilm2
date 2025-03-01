@@ -39,6 +39,8 @@ align-items: center;
     margin-top: 10px;
 }
 .film-card-delete{
+    display: flex;
+    flex-direction: row;
     position: absolute;
     bottom: 10px;
     right: 10px;

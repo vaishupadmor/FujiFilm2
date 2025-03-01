@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-
+import toast,{Toaster} from 'react-hot-toast';
 function EditFilm() {
     const [film,setFilm] =useState({
                     title:"",
@@ -28,6 +28,23 @@ function EditFilm() {
         useEffect(()=>{
         loadFilmDetails();
         },[])
+
+        const updateFilm = async()=>{
+const response =await axios.put(`${process.env.REACT_APP_API_URL}/films/${id}`,{
+            title:film.title,
+            shortDescription:film.shortDescription,
+            director:film.director,
+            poster:film.poster,
+            releaseYear:film.releaseYear,
+            category:film.category,
+            language:film.language,
+            rating:film.rating,
+})
+
+toast.success(response.data.message);
+
+
+        }
   return (
     <div>
         <h1>EditFilm</h1>
@@ -100,12 +117,13 @@ function EditFilm() {
 
        
        <Button 
-       title="Add Film" 
-       onClick={()=>{}}
+       title="update Film" 
+       onClick={()=>{updateFilm()}}
        variant="primary"/>
 
 
     </div>
+    <Toaster/>
     </div>
   )
 }
