@@ -47,8 +47,8 @@ toast.success(response.data.message);
         }
   return (
     <div>
-        <h1>EditFilm</h1>
-        <p>ID:{id}</p>
+        <h1 className='Edit-page-heading'>EditFilm</h1>
+        
         <div   className='add-film-form'>
        <Input
        label="Title"
@@ -115,11 +115,12 @@ toast.success(response.data.message);
       
        />
 
-       
+<div  className='update-btn'>
        <Button 
        title="update Film" 
        onClick={()=>{updateFilm()}}
        variant="primary"/>
+       </div>
 
 
     </div>
